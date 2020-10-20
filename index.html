@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="google-site-verification SolomiyaBeshley" content="FBOUdRnYTLtQasyyQ2oAqY1ZiTavMnioJ2TU_92jW_s" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon" href="./image/signs.png" />
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <title>Text Editor</title>
+</head>
+
+<body>
+    <header>
+        <div id="fontEditor">
+            <!-- жирний текст -->
+            <div class="boldText" onclick="boldText()">
+                <img src="./image/bold.png" title="bold шрифт тексту" height="50%" width="60%"></div>
+            <!-- похилений текст -->
+            <div class="italicText" onclick="italicText()"><img src="./image/italic.png" title="italic стиль тексту"
+                    height="50%" width="60%"></div>
+            <!-- підкреслений текст -->
+            <div class="underlineText" onclick="underlineText()"><img src="./image/underline.png"
+                    title="підкреслений стиль тексту" height="50%" width="60%"></div>
+            <!-- перекреслений текст -->
+            <div class="strikethroughText" onclick="strikethroughText()"><img src="./image/strikethrough.png"
+                    title="перекреслений стиль тексту" height="50%" width="60%"></div>
+        </div>
+        <!-- вирівнювання тексту -->
+        <div id="fontAlign">
+            <!-- зліва -->
+            <div class="alignLeft" onclick="alignLeft()"><img src="./image/left-indent.png" title="Вирівнювання зліва"
+                    height="50%" width="40%"></div>
+            <!-- центр -->
+            <div class="alignCenter" onclick="alignCenter()"><img src="./image/ui.png" title="Вирівнювання по центру"
+                    height="50%" width="40%"></div>
+            <!-- справа -->
+            <div class="alignRight" onclick="alignRight()"><img src="./image/right-indent.png"
+                    title="Вирівнювання справа" height="50%" width="40%"></div>
+        </div>
+        <!-- вибираємо фон тексту -->
+        <div id="fontStyle">
+            <div class="chooseFont">
+                <img src="./image/text-editor.png" title="Виберіть фон" height="50%" width="40%">
+                <select id="chooseFont" onchange="chooseFont(this)">
+                    <option></option>
+                    <option>Cursive</option>
+                    <option>Fantasy</option>
+                    <option>Monospace</option>
+                    <option>Sens-serif</option>
+                    <option>Times New Roman</option>
+                    <option>Arial</option>
+                    <option>Helvetica</option>
+                    <option>Arial Black</option>
+                    <option>Impact</option>
+                    <option>Lucida Sans Unicode</option>
+                    <option>Lucida Console</option>
+                    <option>Cambria</option>
+                </select>
+            </div>
+            <!-- вибираємо розмір тексту -->
+            <div class="fontSize">
+                <img src="./image/typography.png" title="Виберіть розмір тексту" height="50%" width="40%">
+                <select id="chooseSize" onchange="chooseSize()">
+                    <option></option>
+                    <option value="10">10px</option>
+                    <option value="12">12px</option>
+                    <option value="14">14px</option>
+                    <option value="16">16px</option>
+                    <option value="18">18px</option>
+                    <option value="20">20px</option>
+                    <option value="22">22px</option>
+                    <option value="24">26px</option>
+                    <option value="28">28px</option>
+                    <option value="30">30px</option>
+                </select>
+            </div>
+            <!-- вибираємо колір тексту -->
+            <div class="colorText" onclick="colorText()">
+                <img src="./image/text.png" title="Виберіть колір тексту" height="50%" width="40%"></div>
+            <!-- вибираємо  фон-->
+            <div class="backgroundColor" onclick="backgroundImgColor()">
+                <img src="./image/font.png" title="Виберіть тип фону" height="60%" width="60%"></div>
+        </div>
+        <!-- поле для створення списків -->
+        <div id="areaForCreateLI">
+            <div id="ABCstyleLI" onclick="openABCList()">
+                <img src="./image/menuABC.png" title="ABC список" height="70%" width="60%">
+            </div>
+            <div id="circleLIstyle" onclick="openBulletedList()">
+                <img src="./image/LIcircle.png" title="маркери" height="70%" width="60%">
+            </div>
+            <div id="numberLIstyle" onclick="openNumberList()">
+                <img src="./image/LInumber.png" title="нумерація" height="70%" width="60%">
+            </div>
+        </div>
+        <!-- HTML OUTPUT -->
+        <div id="areaForHTMLcode">
+            <div onclick="openHTML()"><img src="./image/coding.png" title="введіть HTML текст" height="70%" width="60%">
+            </div>
+        </div>
+    </header>
+    <div id="placeForChoose">
+        <!-- поле для вибору кольору тексту -->
+        <div id="areaForColor">
+            <div class="closeWindow" onclick="closeWindowForColor()">
+                <img src="./image/close.png" title="Закрити" height="100%" width="60%">
+            </div>
+            </p>Виберіть колір тексту:</p>
+            <div id="chooseColorOfText">
+                <input type="color" name="" id="sectionTextColor">
+            </div>
+            <button class="saveColor" onclick="saveColor()">Зберегти</button>
+        </div>
+
+        <!-- поле для вибору заднього фону -->
+        <div id="areaForBackground">
+            <div class="closeWindow" onclick="closeWindowForBackground()">
+                <img src="./image/close.png" title="Закрити" height="60%" width="30%">
+            </div>
+            <p>Виберіть фон:</p>
+            <div id="butt_style">
+                <div class="colorForBack" onclick="colorB()">
+                    <button class="colorB"></button>
+                </div>
+                <div class="imageForBack" onclick="chooseImagesOfBack()">
+                    <button class="imagesB"></button>
+                </div>
+                <div class="chooseFileForBack" onclick="DownloadImg()">
+                    <button class="filesB"></button>
+                </div>
+            </div>
+            <!-- оформлення кольору фону -->
+            <div id="chooseColorOfBack">
+                <input type="color" name="" id="colorOfBackground">
+                <button class="saveBack" onclick="saveBackColor()">Зберегти</button>
+            </div>
+            <!-- оформлення картинки фону -->
+            <div id="chooseImagesOfBack">
+                <table class="tableBackImages">
+                    <tr>
+                        <td class="img_1" onclick="img_1()"></td>
+                        <td class="img_2" onclick="img_2()"></td>
+                        <td class="img_3" onclick="img_3()"></td>
+                        <td class="img_4" onclick="img_4()"></td>
+                    </tr>
+                    <tr>
+                        <td class="img_5" onclick="img_5()"></td>
+                        <td class="img_6" onclick="img_6()"></td>
+                        <td class="img_7" onclick="img_7()"></td>
+                        <td class="img_8" onclick="img_8()"></td>
+                    </tr>
+                    <tr>
+                        <td class="img_9" onclick="img_9()"></td>
+                        <td class="img_10" onclick="img_10()"></td>
+                        <td class="img_11" onclick="img_11()"></td>
+                        <td class="img_12" onclick="img_12()"></td>
+                    </tr>
+                </table>
+                <button class="saveBack" onclick="saveBack()">Зберегти</button>
+            </div>
+            <!-- оформлення завантаження фону -->
+            <div id="downloadImage">
+                <input type='file' id='getval' name="background-image" onchange="readURL(event)" /><br /><br />
+                <button class="saveBack" onclick="saveBack()">Зберегти</button>
+            </div>
+        </div>
+        <!-- оформлення виводу списку -->
+        <div id="pageForCreatingList">
+            <div class="closeWindow" onclick="closeNumberList()">
+                <img src="./image/close.png" title="Закрити" height="60%" width="40%">
+            </div>
+            <h3><img src="./image/edit-tools.png" height="10%" width="10%">Створити список:</h3>
+            <hr>
+            <div>
+                <p>Введіть текст:</p>
+                <input type="text" name="" id="textLI">
+            </div>
+            <div>
+                <p>Виберіть стиль списку:</p>
+                <select id="typeMarkOfList" title="Виберіть стиль списку">
+                    <option></option>
+                    <option value="decimal">1,2,...</option>
+                    <option value="decimal-leading-zero">01,02,...</option>
+                    <option value="upper-roman">I, II, III,...</option>
+                    <option value="lower-roman">i, ii, iii,...</option>
+                </select>
+            </div>
+            <div id="resetOrAddList">
+                <button class="createListButton" onclick="createListButton()">Створити</button>
+            </div>
+        </div>
+        <!-- ВИВІД МАРКОВАНОГО СПИСКУ -->
+        <div id="pageForCreatingBulletedList">
+            <div class="closeBulletedWindow" onclick="closeBulleteList()">
+                <img src="./image/close.png" title="Закрити" height="50%" width="40%">
+            </div>
+            <h3><img src="./image/list (1).png" height="10%" width="10%">Створити список:</h3>
+            <hr />
+            <div>
+                <p>Введіть текст:</p>
+                <input type="text" name="" id="textBulletedLI">
+            </div>
+            <div>
+                <p>Виберіть стиль списку:</p>
+                <select id="typeMarkOfBulletedList" title="Виберіть стиль списку">
+                    <option></option>
+                    <option value="circle">circle</option>
+                    <option value="disc">disc</option>
+                    <option value="square">square</option>
+                    <option value="none">none</option>
+                </select>
+            </div>
+            <div id="AddBulletedList">
+                <button class="createListButton" onclick="createBulletedListButton()">Створити</button>
+            </div>
+        </div>
+        <!-- ВИВІД СПИСКУ З БУКВАМИ -->
+        <div id="pageForCreatingABCList">
+            <div class="closeABCWindow" onclick="closeABCList()">
+                <img src="./image/close.png" title="Закрити" height="50%" width="40%">
+            </div>
+            <h3><img src="./image/ordered.png" height="10%" width="10%">Створити список:</h3>
+            <hr />
+            <div>
+                <p>Введіть текст:</p>
+                <input type="text" name="" id="textABCLI">
+            </div>
+            <div>
+                <p>Виберіть стиль списку:</p>
+                <select id="typeMarkOfABCList" title="Виберіть стиль списку">
+                    <option></option>
+                    <option value="lower-alpha">a,b,c,...</option>
+                    <option value="upper-alpha">A,B,C,...</option>
+                    <option value="lower-greek">α, β, γ, δ,...</option>
+                </select>
+            </div>
+            <div id="AddABCList">
+                <button class="createListButton" onclick="createABCListButton()">Створити</button>
+            </div>
+        </div>
+        <!-- вивід поля для вводу html коду -->
+        <div id="pageForCreatingHTMLCode">
+            <div class="closeWindow" onclick="closeHTMLarea()">
+                <img src="./image/close.png" title="Закрити" height="50%" width="40%">
+            </div>
+            <div>Введіть HTLM текст:</div>
+            <textarea name="" id="fieldForHTMLcode" cols="30" rows="10"></textarea>
+            <button id="addHTML" onclick="addHTML()">Додати</button>
+        </div>
+    </div>
+    <section>
+        <!-- вивід тексту -->
+        <div id="areaForText">
+            <div class="addhtml"></div>
+            <textarea id="output" placeholder="Введіть щось..."></textarea>
+            <ul id="myList"></ul>
+        </div>
+    </section>
+    <script src="script.js"></script>
+</body>
+
+</html>
